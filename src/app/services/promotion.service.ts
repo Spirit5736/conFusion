@@ -7,9 +7,6 @@ import { PROMOTIONS } from "../shared/promotions";
   providedIn: "root",
 })
 export class PromotionService {
-  getPromotions(): Promotion {
-    return PROMOTIONS;
-  }
 
   getPromotion(id: string): Promotion {
     return PROMOTIONS.filter((promo) => promo.id === id)[0];
