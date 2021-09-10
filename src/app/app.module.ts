@@ -1,3 +1,4 @@
+import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,6 +20,9 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PromotionService } from './services/promotion.service';
+import { HttpClientModule } from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import { PromotionService } from './services/promotion.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
+    DishdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +44,14 @@ import { PromotionService } from './services/promotion.service';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+
   ],
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    {provide: 'BaseURL', useValue: baseURL}
   ],
   bootstrap: [AppComponent]
 })
